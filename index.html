@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#153f3b" />
+  <title>MediConnect Kerala</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="portal.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" aria-label="Primary navigation">
+      <a class="brand" href="#" data-view-link="home" aria-label="MediConnect home">
+        <span class="brand-mark">M</span>
+        <span><b>MediConnect</b><small>Kerala care network</small></span>
+      </a>
+
+      <nav id="primaryNav">
+        <button class="nav-item active" data-view="home"><span>⌂</span> Home</button>
+        <button class="nav-item" data-view="doctors"><span>✚</span> Find doctors</button>
+        <button class="nav-item" data-view="appointments"><span>◷</span> Appointments <em>2</em></button>
+        <button class="nav-item" data-view="records"><span>▤</span> Health records</button>
+        <button class="nav-item" data-view="legal"><span>✓</span> Legal & consent <i>Action</i></button>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <button class="nav-item" data-view="help"><span>?</span> Help centre</button>
+        <button class="profile-mini" id="profileMini" data-view="profile">
+          <span class="avatar">AN</span><span><b>Anjali Nair</b><small>Patient ID · MC-28904</small></span><span>›</span>
+        </button>
+      </div>
+    </aside>
+
+    <main>
+      <header class="topbar">
+        <button class="mobile-menu" id="menuBtn" aria-label="Open menu">☰</button>
+        <div class="location"><span class="pulse"></span><div><small>Your care location</small><b>Kochi, Kerala</b></div><span>⌄</span></div>
+        <div class="top-actions">
+          <label class="role-switch"><small>WORKSPACE</small><select id="roleSelect" aria-label="Switch workspace"><option value="patient">Patient</option><option value="doctor">Doctor</option><option value="admin">Admin</option><option value="compliance">Support & Compliance</option></select></label>
+          <button class="lang" id="langBtn">മലയാളം</button>
+          <button class="icon-btn" aria-label="Notifications">♢<span class="dot"></span></button>
+          <button class="emergency" id="emergencyBtn"><span>✦</span> Emergency</button>
+        </div>
+      </header>
+
+      <section id="home" class="view active-view">
+        <div class="welcome-row">
+          <div><p class="eyebrow">FRIDAY, 19 JUNE</p><h1>Good afternoon, Anjali.</h1><p>How can we help you feel better today?</p></div>
+          <div class="trust-pill"><span>✓</span><div><b>Your health data is protected</b><small>Consent-based · encrypted · audit logged</small></div></div>
+        </div>
+
+        <div class="hero-grid">
+          <article class="consult-card">
+            <div class="consult-copy">
+              <span class="live"><i></i> 32 doctors online now</span>
+              <h2>Care that comes<br>to you.</h2>
+              <p>Consult a Kerala-registered doctor from home. Secure video, voice, or chat.</p>
+              <button class="primary" data-open="doctorModal">Find a doctor <span>→</span></button>
+            </div>
+            <div class="hero-art" aria-hidden="true">
+              <div class="orb orb-one"></div><div class="orb orb-two"></div>
+              <div class="doctor-figure"><div class="head"></div><div class="hair"></div><div class="coat"></div><div class="stethoscope">◡</div></div>
+              <span class="float-chip video">▰ <b>Secure video</b></span>
+              <span class="float-chip verified">✓ <b>NMC verified</b></span>
+            </div>
+          </article>
+
+          <article class="appointment-card">
+            <div class="card-title"><div><span class="kicker">NEXT APPOINTMENT</span><h3>Today, 4:30 PM</h3></div><button aria-label="Appointment menu">•••</button></div>
+            <div class="doctor-row">
+              <div class="doctor-avatar coral">SM</div>
+              <div><b>Dr. Sneha Menon</b><small>General Medicine · 12 yrs</small><span class="verified-text">✓ Registration verified</span></div>
+            </div>
+            <div class="appointment-meta"><span>▣ Video consultation</span><span>30 min</span></div>
+            <button class="join-btn" id="joinBtn">Join waiting room <span>→</span></button>
+            <p class="consent-note">✓ Teleconsultation consent recorded</p>
+          </article>
+        </div>
+
+        <div class="section-heading"><div><span class="kicker">QUICK CARE</span><h2>What do you need?</h2></div><button class="text-btn" data-view-jump="doctors">View all services →</button></div>
+        <div class="quick-grid">
+          <button class="quick-card mint" data-view-jump="doctors"><span class="service-icon">⌕</span><b>Find a doctor</b><small>Browse by speciality</small><i>→</i></button>
+          <button class="quick-card peach" id="symptomBtn"><span class="service-icon">✦</span><b>Check symptoms</b><small>Guided triage, not diagnosis</small><i>→</i></button>
+          <button class="quick-card lilac" data-view-jump="records"><span class="service-icon">▤</span><b>Health records</b><small>Reports & prescriptions</small><i>→</i></button>
+          <button class="quick-card yellow" id="pharmacyBtn"><span class="service-icon">✚</span><b>Nearby pharmacy</b><small>Licensed stores near you</small><i>→</i></button>
+        </div>
+
+        <div class="lower-grid">
+          <article class="panel medicine-panel">
+            <div class="panel-head"><div><span class="kicker">TODAY'S MEDICINES</span><h3>2 doses remaining</h3></div><button class="text-btn">Manage</button></div>
+            <div class="medicine-item"><button class="check-dose">✓</button><div><b>Metformin 500 mg</b><small>After breakfast · 8:00 AM</small></div><span class="done">Taken</span></div>
+            <div class="medicine-item"><button class="check-dose pending"></button><div><b>Vitamin D3</b><small>After dinner · 8:30 PM</small></div><span class="time">Tonight</span></div>
+          </article>
+          <article class="panel compliance-panel">
+            <div class="panel-head"><div><span class="kicker">LEGAL READINESS</span><h3>3 actions need attention</h3></div><span class="score-ring">72<small>%</small></span></div>
+            <div class="progress"><span></span></div>
+            <div class="compliance-tasks"><span><i class="warn">!</i> Review privacy notice</span><span><i>✓</i> Consultation consent</span><span><i class="warn">!</i> Add grievance contact</span></div>
+            <button class="outline" data-view-jump="legal">Open Compliance Centre →</button>
+          </article>
+        </div>
+      </section>
+
+      <section id="doctors" class="view">
+        <div class="page-head"><div><span class="kicker">VERIFIED NETWORK</span><h1>Find the right doctor</h1><p>Registration-checked clinicians available across Kerala.</p></div><button class="primary" data-open="doctorModal">Book consultation</button></div>
+        <div class="search-bar"><span>⌕</span><input id="doctorSearch" placeholder="Search doctor, speciality or city"/><button>Filters</button></div>
+        <div class="specialities"><button class="active">All</button><button>General medicine</button><button>Dermatology</button><button>Paediatrics</button><button>Mental health</button></div>
+        <div class="doctor-list" id="doctorList"></div>
+      </section>
+
+      <section id="appointments" class="view">
+        <div class="page-head"><div><span class="kicker">YOUR CARE PLAN</span><h1>Appointments</h1><p>Upcoming visits and consultation history.</p></div><button class="primary" data-open="doctorModal">+ New appointment</button></div>
+        <div class="tabbar"><button class="active">Upcoming</button><button>Completed</button><button>Cancelled</button></div>
+        <div class="timeline">
+          <article><div class="date-block"><b>19</b><small>JUN</small></div><div class="timeline-line"></div><div class="appointment-detail"><span class="tag green">TODAY · 4:30 PM</span><h3>Video consultation with Dr. Sneha Menon</h3><p>General Medicine · 30 minutes · Consent recorded</p><div><button class="primary" id="joinBtn2">Join waiting room</button><button class="outline">Reschedule</button></div></div></article>
+          <article><div class="date-block muted"><b>24</b><small>JUN</small></div><div class="timeline-line"></div><div class="appointment-detail"><span class="tag">WED · 10:00 AM</span><h3>Follow-up with Dr. Afsal Rahman</h3><p>Dermatology · 20 minutes · ₹450</p><div><button class="outline">View details</button></div></div></article>
+        </div>
+      </section>
+
+      <section id="records" class="view">
+        <div class="page-head"><div><span class="kicker">PRIVATE BY DESIGN</span><h1>Health records</h1><p>You control who can see each record and for how long.</p></div><button class="primary" id="uploadBtn">+ Add record</button></div>
+        <div class="privacy-banner"><span>⌾</span><div><b>Access is consent-based</b><p>No doctor can open these files unless you grant access. Every view is recorded in your audit log.</p></div><button class="outline" id="auditBtn">View audit log</button></div>
+        <div class="record-grid">
+          <article><span class="file-icon pdf">PDF</span><div><b>Blood test report</b><small>DDRC Lab · 12 June 2026</small></div><button>⋮</button></article>
+          <article><span class="file-icon rx">Rx</span><div><b>Prescription</b><small>Dr. Sneha Menon · 2 June 2026</small></div><button>⋮</button></article>
+          <article><span class="file-icon img">IMG</span><div><b>Chest X-ray</b><small>Medical Trust · 18 May 2026</small></div><button>⋮</button></article>
+        </div>
+      </section>
+
+      <section id="legal" class="view">
+        <div class="page-head legal-head"><div><span class="kicker">KERALA COMPLIANCE CENTRE</span><h1>Safe care. Clear rights.</h1><p>Actionable safeguards for telemedicine in Kerala—not a substitute for legal advice.</p></div><div class="legal-score"><span>72%</span><small>Readiness score</small></div></div>
+        <div class="legal-layout">
+          <div>
+            <div class="legal-alert"><span>!</span><div><b>3 items need your attention</b><p>Complete these before your next consultation.</p></div></div>
+            <div class="action-list" id="legalActions"></div>
+          </div>
+          <aside class="legal-aside">
+            <article><span class="kicker">YOUR RIGHTS</span><h3>During teleconsultation</h3><ul><li>Know the doctor's identity and registration</li><li>Give or withdraw informed consent</li><li>Receive a signed prescription when appropriate</li><li>Access your records and audit history</li><li>Raise a grievance about care or privacy</li></ul></article>
+            <article><span class="kicker">EMERGENCY</span><h3>Telemedicine is not for emergencies</h3><p>For chest pain, severe breathing difficulty, loss of consciousness, stroke signs, heavy bleeding, or immediate danger:</p><a href="tel:112" class="call-btn">Call 112 now</a></article>
+            <article class="source-card"><span class="kicker">LEGAL BASIS</span><p>Built around India’s Telemedicine Practice Guidelines, the Digital Personal Data Protection framework, applicable professional conduct rules, and Kerala clinical-establishment requirements.</p><button id="sourceBtn" class="text-btn">View source register →</button></article>
+          </aside>
+        </div>
+      </section>
+
+      <section id="doctor_dashboard" class="view portal-view">
+        <div class="portal-welcome"><div><span class="kicker">DOCTOR WORKSPACE</span><h1>Good afternoon, Dr. Sneha.</h1><p>Four consultations today. Your next patient has completed pre-consultation consent.</p></div><div class="availability"><i></i><span><small>AVAILABILITY</small><b>Online for consultations</b></span><button id="availabilityBtn">Go offline</button></div></div>
+        <div class="metric-grid"><article><span>◷</span><small>TODAY'S APPOINTMENTS</small><b>4</b><em>Next at 4:30 PM</em></article><article><span>♙</span><small>PATIENTS THIS MONTH</small><b>128</b><em class="positive">↑ 12% vs May</em></article><article><span>Rx</span><small>PENDING PRESCRIPTIONS</small><b>2</b><em>Needs signature</em></article><article><span>₹</span><small>MONTHLY EARNINGS</small><b>₹68,400</b><em>14 settlements</em></article></div>
+        <div class="doctor-work-grid"><article class="panel"><div class="panel-head"><div><span class="kicker">TODAY'S QUEUE</span><h3>Upcoming consultations</h3></div><button class="text-btn">View schedule →</button></div><div class="queue-list"><div><span class="queue-time">4:30<small>PM</small></span><span class="avatar">AN</span><p><b>Anjali Nair</b><small>General consultation · Video · Consent ✓</small></p><button class="primary doctor-start">Open chart</button></div><div><span class="queue-time">5:15<small>PM</small></span><span class="avatar blue">RK</span><p><b>Rajeev Kumar</b><small>Follow-up · Voice · Consent ✓</small></p><button class="outline doctor-start">Review</button></div><div><span class="queue-time">6:00<small>PM</small></span><span class="avatar gold">FN</span><p><b>Fathima N.</b><small>New patient · Video · Consent pending</small></p><button class="outline doctor-start">Review</button></div></div></article><article class="panel"><span class="kicker">CLINICAL SAFETY</span><h3>Before you prescribe</h3><div class="safety-check"><span>✓</span><p><b>Identity verified</b><small>Doctor and patient</small></p></div><div class="safety-check"><span>✓</span><p><b>Consent recorded</b><small>Receipt MC-C-90831</small></p></div><div class="safety-check warn"><span>!</span><p><b>Allergy review required</b><small>Confirm with patient</small></p></div><button class="outline full" id="rxSafetyBtn">Open prescription safeguards →</button></article></div>
+      </section>
+
+      <section id="doctor_patients" class="view portal-view"><div class="page-head"><div><span class="kicker">CARE DIRECTORY</span><h1>Patients</h1><p>Access is limited to active care relationships and recorded consent.</p></div><button class="primary">+ Add consultation note</button></div><div class="privacy-banner"><span>⌾</span><div><b>Minimum necessary access</b><p>Opening a patient chart creates an immutable audit event. Records outside your care relationship remain restricted.</p></div></div><div class="portal-table"><div class="table-tools"><input id="patientSearch" placeholder="Search patient or ID"><button>Filters</button></div><table><thead><tr><th>Patient</th><th>Last consultation</th><th>Care status</th><th>Consent</th><th></th></tr></thead><tbody><tr><td><b>Anjali Nair</b><small>MC-28904 · 34 yrs</small></td><td>2 Jun 2026</td><td><span class="status-chip green">Active</span></td><td>Valid until 4:59 PM</td><td><button class="text-btn patient-chart">Open chart →</button></td></tr><tr><td><b>Rajeev Kumar</b><small>MC-19448 · 51 yrs</small></td><td>12 Jun 2026</td><td><span class="status-chip">Follow-up</span></td><td>Visit scope</td><td><button class="text-btn patient-chart">Open chart →</button></td></tr><tr><td><b>Fathima N.</b><small>MC-33019 · 28 yrs</small></td><td>New patient</td><td><span class="status-chip amber">Pending</span></td><td>Not recorded</td><td><button class="text-btn patient-chart">Request consent →</button></td></tr></tbody></table></div></section>
+
+      <section id="doctor_schedule" class="view portal-view"><div class="page-head"><div><span class="kicker">TIME & AVAILABILITY</span><h1>Schedule</h1><p>Manage consultations, breaks, and leave.</p></div><button class="primary" id="blockTimeBtn">+ Block time</button></div><div class="week-strip"><button>‹</button><div><small>MON</small><b>16</b></div><div><small>TUE</small><b>17</b></div><div><small>WED</small><b>18</b></div><div class="selected"><small>THU</small><b>19</b></div><div><small>FRI</small><b>20</b></div><div><small>SAT</small><b>21</b></div><div><small>SUN</small><b>22</b></div><button>›</button></div><div class="schedule-board"><div class="hours"><span>9 AM</span><span>10 AM</span><span>11 AM</span><span>12 PM</span><span>1 PM</span><span>2 PM</span><span>3 PM</span><span>4 PM</span><span>5 PM</span></div><div class="calendar-canvas"><article style="--top:4%;--height:15%"><b>9:15 · Arun Dev</b><small>Video · Follow-up</small></article><article style="--top:38%;--height:14%"><b>12:30 · Meena K.</b><small>Voice · Review</small></article><article class="coral-event" style="--top:68%;--height:18%"><b>4:30 · Anjali Nair</b><small>Video · General consultation</small></article></div></div></section>
+
+      <section id="doctor_prescriptions" class="view portal-view"><div class="page-head"><div><span class="kicker">DIGITAL PRESCRIPTIONS</span><h1>Prescription desk</h1><p>Create, sign, and safely issue prescriptions after consultation.</p></div><button class="primary" id="newRxBtn">+ New prescription</button></div><div class="rx-grid"><article class="panel"><span class="kicker">REQUIRES ACTION</span><h3>2 drafts need signature</h3><div class="rx-item"><span>Rx</span><p><b>Anjali Nair</b><small>Created today · Allergy check pending</small></p><button class="outline sign-rx">Review</button></div><div class="rx-item"><span>Rx</span><p><b>Rajeev Kumar</b><small>Created 12 Jun · Ready to sign</small></p><button class="outline sign-rx">Review</button></div></article><article class="panel"><span class="kicker">SAFE PRESCRIBING</span><h3>Automated guardrails</h3><ul class="clean-list"><li>Patient and clinician identity fields</li><li>Registration number and digital signature</li><li>Medicine-category restrictions</li><li>Allergy and interaction prompts</li><li>Timestamped audit receipt</li></ul></article></div></section>
+
+      <section id="doctor_earnings" class="view portal-view"><div class="page-head"><div><span class="kicker">FINANCE</span><h1>Earnings</h1><p>Consultation income, platform fees, and settlements.</p></div><button class="outline">Download statement</button></div><div class="finance-hero"><div><small>AVAILABLE FOR SETTLEMENT</small><h2>₹18,250</h2><p>Next automatic settlement · 22 June</p><button class="primary">Request settlement</button></div><div class="bar-chart"><i style="height:40%"></i><i style="height:55%"></i><i style="height:45%"></i><i style="height:72%"></i><i style="height:66%"></i><i style="height:88%"></i><i style="height:78%"></i></div></div></section>
+
+      <section id="admin_dashboard" class="view portal-view"><div class="portal-welcome"><div><span class="kicker">PLATFORM ADMINISTRATION</span><h1>MediConnect control room</h1><p>Monitor provider trust, platform health, payments, and user safety.</p></div><button class="primary" data-admin="report">Generate operations report</button></div><div class="metric-grid"><article><span>✓</span><small>VERIFIED DOCTORS</small><b>486</b><em class="positive">+18 this month</em></article><article><span>⌛</span><small>VERIFICATION QUEUE</small><b>23</b><em class="warning">6 due today</em></article><article><span>♙</span><small>ACTIVE PATIENTS</small><b>12,840</b><em class="positive">↑ 9.4%</em></article><article><span>◉</span><small>PLATFORM UPTIME</small><b>99.98%</b><em>Last 30 days</em></article></div><div class="admin-grid"><article class="panel"><div class="panel-head"><div><span class="kicker">VERIFICATION QUEUE</span><h3>Provider applications</h3></div><button class="text-btn" data-view-jump="admin_verification">View all →</button></div><div class="review-row"><span class="avatar">AK</span><p><b>Dr. Arjun Krishnan</b><small>Cardiology · TCMC documents uploaded</small></p><span class="status-chip amber">Review</span><button class="outline admin-review">Open</button></div><div class="review-row"><span class="avatar blue">LM</span><p><b>Dr. Lakshmi Mohan</b><small>Dermatology · Re-verification</small></p><span class="status-chip">Renewal</span><button class="outline admin-review">Open</button></div></article><article class="panel"><span class="kicker">LIVE OPERATIONS</span><h3>System health</h3><div class="health-line"><span><i class="online"></i>Video services</span><b>Operational</b></div><div class="health-line"><span><i class="online"></i>Prescription signing</span><b>Operational</b></div><div class="health-line"><span><i class="warning-dot"></i>Payment settlements</span><b>2 delayed</b></div><div class="health-line"><span><i class="online"></i>Audit logging</span><b>Operational</b></div></article></div></section>
+
+      <section id="admin_verification" class="view portal-view"><div class="page-head"><div><span class="kicker">TRUST & CREDENTIALS</span><h1>Doctor verification</h1><p>Four-eye review for professional registration, identity, qualification, and affiliation.</p></div><button class="outline">Export queue</button></div><div class="verification-layout"><div class="portal-table"><table><thead><tr><th>Applicant</th><th>Speciality</th><th>Submitted</th><th>Risk</th><th>Status</th></tr></thead><tbody><tr class="verify-select"><td><b>Dr. Arjun Krishnan</b><small>APP-9821</small></td><td>Cardiology</td><td>18 Jun</td><td><span class="status-chip green">Low</span></td><td>In review</td></tr><tr><td><b>Dr. Lakshmi Mohan</b><small>APP-9819</small></td><td>Dermatology</td><td>18 Jun</td><td><span class="status-chip amber">Medium</span></td><td>Renewal</td></tr></tbody></table></div><aside class="verification-card"><span class="kicker">APPLICATION APP-9821</span><h3>Dr. Arjun Krishnan</h3><div class="doc-check"><span>✓</span><p><b>Identity</b><small>Matched</small></p></div><div class="doc-check"><span>✓</span><p><b>Professional registration</b><small>Primary-source check complete</small></p></div><div class="doc-check pending"><span>!</span><p><b>Hospital affiliation</b><small>Awaiting confirmation</small></p></div><label>Reviewer note<textarea placeholder="Record the reason for this decision"></textarea></label><div class="decision-row"><button class="danger-btn verification-decision">Reject</button><button class="primary verification-decision">Approve</button></div></aside></div></section>
+
+      <section id="admin_users" class="view portal-view"><div class="page-head"><div><span class="kicker">USER MANAGEMENT</span><h1>People & access</h1><p>Manage accounts using least-privilege controls.</p></div><button class="primary">+ Invite staff member</button></div><div class="portal-table"><div class="table-tools"><input placeholder="Search users"><button>Role filters</button></div><table><thead><tr><th>User</th><th>Role</th><th>Last active</th><th>Security</th><th>Status</th><th></th></tr></thead><tbody><tr><td><b>Anjali Nair</b><small>MC-28904</small></td><td>Patient</td><td>Now</td><td>MFA enabled</td><td><span class="status-chip green">Active</span></td><td><button class="text-btn">View →</button></td></tr><tr><td><b>Dr. Sneha Menon</b><small>DOC-442</small></td><td>Doctor</td><td>2 min ago</td><td>MFA enabled</td><td><span class="status-chip green">Verified</span></td><td><button class="text-btn">View →</button></td></tr><tr><td><b>Support Agent 12</b><small>STF-012</small></td><td>Support</td><td>Today</td><td>Restricted</td><td><span class="status-chip">Active</span></td><td><button class="text-btn">Permissions →</button></td></tr></tbody></table></div></section>
+
+      <section id="admin_payments" class="view portal-view"><div class="page-head"><div><span class="kicker">PAYMENTS & SETTLEMENTS</span><h1>Financial operations</h1><p>Reconcile consultations, refunds, platform fees, and doctor payouts.</p></div><button class="outline">Export reconciliation</button></div><div class="metric-grid compact"><article><small>GROSS THIS MONTH</small><b>₹24.8L</b></article><article><small>DOCTOR PAYABLE</small><b>₹19.4L</b></article><article><small>REFUNDS PENDING</small><b>₹32,600</b></article><article><small>FAILED PAYMENTS</small><b>18</b></article></div><div class="portal-table"><table><thead><tr><th>Transaction</th><th>Consultation</th><th>Amount</th><th>Settlement</th><th>Status</th></tr></thead><tbody><tr><td>TXN-819022</td><td>Anjali → Dr. Sneha</td><td>₹500</td><td>22 Jun</td><td><span class="status-chip green">Captured</span></td></tr><tr><td>TXN-819018</td><td>Rajeev → Dr. Afsal</td><td>₹450</td><td>Review</td><td><span class="status-chip amber">Refund</span></td></tr></tbody></table></div></section>
+
+      <section id="admin_analytics" class="view portal-view"><div class="page-head"><div><span class="kicker">PLATFORM INSIGHTS</span><h1>Analytics</h1><p>Privacy-preserving operational and care-access trends.</p></div><button class="outline">Last 30 days ⌄</button></div><div class="analytics-grid"><article class="panel wide"><span class="kicker">CONSULTATION VOLUME</span><h3>8,491 consultations</h3><div class="line-chart"><svg viewBox="0 0 600 180" preserveAspectRatio="none"><polyline points="0,150 70,128 130,140 205,94 270,108 335,57 410,77 475,35 540,53 600,18" fill="none" stroke="#2d7a6e" stroke-width="5"/><polyline points="0,180 0,150 70,128 130,140 205,94 270,108 335,57 410,77 475,35 540,53 600,18 600,180" fill="rgba(45,122,110,.12)"/></svg></div></article><article class="panel"><span class="kicker">ACCESS BY REGION</span><h3>Top districts</h3><div class="rank"><span>Kochi</span><i style="width:91%"></i><b>2,190</b></div><div class="rank"><span>TVM</span><i style="width:76%"></i><b>1,824</b></div><div class="rank"><span>Kozhikode</span><i style="width:64%"></i><b>1,538</b></div><div class="rank"><span>Thrissur</span><i style="width:51%"></i><b>1,221</b></div></article></div></section>
+
+      <section id="compliance_dashboard" class="view portal-view"><div class="portal-welcome"><div><span class="kicker">SUPPORT & COMPLIANCE</span><h1>Rights and safety desk</h1><p>Handle grievances, privacy requests, incidents, and evidence trails.</p></div><div class="sla-card"><small>CASES WITHIN SLA</small><b>94.2%</b><span>↑ 2.1%</span></div></div><div class="metric-grid"><article><span>▤</span><small>OPEN GRIEVANCES</small><b>18</b><em class="warning">4 due today</em></article><article><span>⌾</span><small>PRIVACY REQUESTS</small><b>7</b><em>2 identity checks</em></article><article><span>!</span><small>ACTIVE INCIDENTS</small><b>1</b><em class="warning">Priority 2</em></article><article><span>✓</span><small>AUDIT COVERAGE</small><b>100%</b><em class="positive">Healthy</em></article></div><div class="compliance-grid"><article class="panel"><div class="panel-head"><div><span class="kicker">PRIORITY QUEUE</span><h3>Cases needing action</h3></div><button class="text-btn" data-view-jump="compliance_cases">Open queue →</button></div><div class="case-row"><span class="priority high">P1</span><p><b>GRV-219 · Care complaint</b><small>Patient reports prescription mismatch · 34 min</small></p><button class="outline case-open">Open</button></div><div class="case-row"><span class="priority medium">P2</span><p><b>INC-044 · Access anomaly</b><small>Unusual record access pattern · 1h 12m</small></p><button class="outline case-open">Open</button></div><div class="case-row"><span class="priority low">P3</span><p><b>DSR-881 · Data correction</b><small>Identity verified · 2h 08m</small></p><button class="outline case-open">Open</button></div></article><article class="panel"><span class="kicker">CONTROL STATUS</span><h3>Compliance health</h3><div class="control-score"><b>86</b><small>/100</small></div><div class="health-line"><span>Consent receipts</span><b>Healthy</b></div><div class="health-line"><span>Grievance SLA</span><b>At risk</b></div><div class="health-line"><span>Doctor re-verification</span><b>6 due</b></div><div class="health-line"><span>Record audit integrity</span><b>Healthy</b></div></article></div></section>
+
+      <section id="compliance_cases" class="view portal-view"><div class="page-head"><div><span class="kicker">GRIEVANCES</span><h1>Case management</h1><p>Evidence-led resolution with clear ownership and service levels.</p></div><button class="primary" id="newCaseBtn">+ Create case</button></div><div class="case-board"><div><span>NEW · 5</span><article><b>GRV-219</b><h4>Prescription mismatch</h4><p>Care complaint · P1</p><small>Due in 26 min</small></article><article><b>GRV-218</b><h4>Refund not received</h4><p>Billing · P3</p><small>Due today</small></article></div><div><span>INVESTIGATING · 8</span><article><b>INC-044</b><h4>Access anomaly</h4><p>Privacy · P2</p><small>Owner: Maya</small></article></div><div><span>AWAITING USER · 3</span><article><b>DSR-882</b><h4>Record correction</h4><p>Data right · P3</p><small>Identity evidence needed</small></article></div><div><span>READY TO CLOSE · 2</span><article><b>GRV-211</b><h4>Doctor late to call</h4><p>Service · P3</p><small>Resolution drafted</small></article></div></div></section>
+
+      <section id="compliance_privacy" class="view portal-view"><div class="page-head"><div><span class="kicker">PRIVACY RIGHTS</span><h1>Data requests</h1><p>Track access, correction, erasure, consent withdrawal, and nomination requests.</p></div><button class="primary">+ Log request</button></div><div class="portal-table"><table><thead><tr><th>Request</th><th>Person</th><th>Type</th><th>Identity</th><th>Due</th><th>Status</th></tr></thead><tbody><tr><td>DSR-881</td><td>Anjali Nair</td><td>Correction</td><td>Verified</td><td>24 Jun</td><td><span class="status-chip green">In progress</span></td></tr><tr><td>DSR-880</td><td>Manu P.</td><td>Access copy</td><td>Verified</td><td>23 Jun</td><td><span class="status-chip">Review</span></td></tr><tr><td>DSR-879</td><td>Priya B.</td><td>Consent withdrawal</td><td>Pending</td><td>Today</td><td><span class="status-chip amber">Action</span></td></tr></tbody></table></div></section>
+
+      <section id="compliance_incidents" class="view portal-view"><div class="page-head"><div><span class="kicker">SECURITY & SAFETY</span><h1>Incident response</h1><p>Contain, assess, document, notify, and learn.</p></div><button class="danger-btn" id="declareIncidentBtn">Declare incident</button></div><div class="incident-banner"><span>P2</span><div><b>INC-044 · Unusual health-record access pattern</b><p>Detected 1h 12m ago · Containment in progress · Incident commander: Maya S.</p></div><button class="outline">Open war room</button></div><div class="response-steps"><article class="done"><span>✓</span><b>Detect & triage</b><small>Completed 2:08 PM</small></article><article class="done"><span>✓</span><b>Contain access</b><small>Completed 2:19 PM</small></article><article class="active"><span>3</span><b>Assess impact</b><small>In progress</small></article><article><span>4</span><b>Notify stakeholders</b><small>Pending assessment</small></article><article><span>5</span><b>Remediate & close</b><small>Pending</small></article></div></section>
+
+      <section id="compliance_audit" class="view portal-view"><div class="page-head"><div><span class="kicker">EVIDENCE</span><h1>Audit explorer</h1><p>Search tamper-evident access, consent, clinical, and administrative events.</p></div><button class="outline">Export signed log</button></div><div class="audit-filter"><input placeholder="Search event, person, resource, or receipt"><select><option>All event types</option><option>Record access</option><option>Consent</option><option>Admin action</option></select><button>Search</button></div><div class="audit-stream"><article><span class="event-icon">⌾</span><div><b>Health record opened</b><p>Dr. Sneha Menon → Anjali Nair / Blood test report</p><small>19 Jun 2026 · 4:31:18 PM · Purpose: active consultation</small></div><code>EVT-98A2</code></article><article><span class="event-icon">✓</span><div><b>Teleconsultation consent recorded</b><p>Anjali Nair · Video consultation</p><small>19 Jun 2026 · 4:29:04 PM · Receipt: MC-C-90831</small></div><code>EVT-98A1</code></article><article><span class="event-icon">♙</span><div><b>Provider application approved</b><p>Admin A-14 → Dr. Joel Thomas</p><small>19 Jun 2026 · 3:52:10 PM · Four-eye review complete</small></div><code>EVT-989F</code></article></div></section>
+
+      <section id="help" class="view"><div class="empty-state"><span>?</span><h1>How can we help?</h1><p>Browse care, privacy, billing, and technical support topics.</p><div class="search-bar"><span>⌕</span><input placeholder="Search help topics"><button>Search</button></div></div></section>
+      <section id="profile" class="view"><div class="page-head"><div><span class="kicker">ACCOUNT</span><h1>Anjali Nair</h1><p>Manage your profile, language, security, and consent preferences.</p></div></div><div class="panel profile-panel"><div class="big-avatar">AN</div><div><h3>Anjali Nair</h3><p>anjali@example.com · +91 ••••• 14408</p><span class="verified-text">✓ Mobile verified</span></div><button class="outline">Edit profile</button></div></section>
+    </main>
+  </div>
+
+  <div class="modal-backdrop" id="doctorModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal"><button class="modal-close" data-close>×</button><span class="kicker">BOOK CONSULTATION</span><h2 id="modalTitle">Choose how you’d like to connect</h2><p>Your consent will be requested before the session begins.</p><div class="modal-options"><button class="selected"><span>▰</span><b>Video</b><small>Best for first visits</small></button><button><span>☎</span><b>Voice</b><small>Low bandwidth</small></button><button><span>•••</span><b>Chat</b><small>Text & images</small></button></div><label>What do you need help with?<textarea placeholder="Describe your symptoms briefly"></textarea></label><label class="consent-check"><input type="checkbox" id="consentCheck"><span>I consent to a teleconsultation and understand its limitations.</span></label><button class="primary full" id="continueBooking">Continue to doctors →</button></div>
+  </div>
+
+  <div class="modal-backdrop" id="emergencyModal" role="dialog" aria-modal="true"><div class="modal emergency-modal"><button class="modal-close" data-close>×</button><span class="emergency-symbol">✦</span><h2>Is this an emergency?</h2><p>Do not wait for an online consultation if there is immediate danger, severe chest pain, breathing difficulty, stroke signs, unconsciousness, or heavy bleeding.</p><a class="call-btn big" href="tel:112">Call emergency services · 112</a><button class="outline full" data-close>I’m safe—return to MediConnect</button></div></div>
+
+  <div class="modal-backdrop" id="infoModal" role="dialog" aria-modal="true"><div class="modal"><button class="modal-close" data-close>×</button><div id="infoContent"></div></div></div>
+  <div class="modal-backdrop" id="accessModal" role="dialog" aria-modal="true" aria-labelledby="accessTitle">
+    <div class="modal access-modal">
+      <button class="modal-close" id="cancelAccess" aria-label="Cancel interface change">×</button>
+      <span class="access-lock">⌾</span>
+      <span class="kicker">RESTRICTED WORKSPACE</span>
+      <h2 id="accessTitle">Enter access code</h2>
+      <p id="accessMessage">Authorised staff access is required for this interface.</p>
+      <label for="accessCode">Access code</label>
+      <div class="code-field"><input id="accessCode" type="password" inputmode="text" autocomplete="off" placeholder="Enter code" maxlength="20"><button id="toggleCode" type="button" aria-label="Show access code">Show</button></div>
+      <p class="code-error" id="codeError" role="alert"></p>
+      <button class="primary full" id="unlockWorkspace">Unlock workspace →</button>
+      <small class="demo-hint">Prototype code: <b>MEDI2026</b></small>
+    </div>
+  </div>
+  <div class="toast" id="toast"><span>✓</span><p></p></div>
+  <script src="app.js"></script>
+</body>
+</html>
