@@ -80,11 +80,11 @@ let pendingRole = null;
 const workspaces = {
   patient: {
     home:'home', profile:'profile', person:'Anjali Nair', meta:'Patient ID · MC-28904', initials:'AN',
-    nav:[['home','⌂','Home'],['doctors','✚','Find doctors'],['appointments','◷','Appointments','2'],['records','▤','Health records'],['legal','✓','Legal & consent','Action']]
+    nav:[['home','⌂','Home'],['doctors','✚','Find doctors'],['appointments','◷','Appointments','2'],['followup_care','↺','Follow-up care'],['virtual_ward','⌂','Virtual ward'],['records','▤','Health records'],['legal','✓','Legal & consent','Action']]
   },
   doctor: {
     home:'doctor_dashboard', profile:'doctor_dashboard', person:'Dr. Sneha Menon', meta:'General Medicine · Verified', initials:'SM',
-    nav:[['doctor_dashboard','⌂','Overview'],['doctor_patients','♙','Patients'],['doctor_schedule','◷','Schedule','4'],['doctor_prescriptions','Rx','Prescriptions','2'],['doctor_earnings','₹','Earnings']]
+    nav:[['doctor_dashboard','⌂','Overview'],['doctor_patients','♙','Patients'],['doctor_schedule','◷','Schedule','4'],['doctor_followups','↺','Follow-ups','6'],['doctor_virtual_ward','⌂','Virtual ward','9'],['doctor_prescriptions','Rx','Prescriptions','2'],['doctor_earnings','₹','Earnings']]
   },
   admin: {
     home:'admin_dashboard', profile:'admin_dashboard', person:'Arun Nair', meta:'Platform administrator', initials:'AD',
